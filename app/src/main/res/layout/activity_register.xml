@@ -49,14 +49,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitleRegister" />
 
-    <!-- Campo Usuario / Correo -->
+    <!-- Campo Nombre de Usuario -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilUsernameRegister"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="Ingrese su nombre de usuario"
+        android:textColorHint="@color/neon_cyan"
+        app:boxBackgroundColor="@color/card_dark"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxStrokeColor="@color/stroke_dark"
+        app:hintTextColor="@color/neon_cyan"
+        app:startIconDrawable="@android:drawable/ic_menu_myplaces"
+        app:startIconTint="@color/neon_cyan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubtitleRegister">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etUsernameRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:textColor="@color/neon_cyan" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Campo Correo -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilEmailRegister"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:hint="Ingrese su usuario"
+        android:layout_marginTop="16dp"
+        android:hint="Ingrese su correo electrónico"
         android:textColorHint="@color/neon_cyan"
         app:boxBackgroundColor="@color/card_dark"
         app:boxCornerRadiusBottomEnd="16dp"
@@ -69,7 +99,7 @@
         app:startIconTint="@color/neon_cyan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSubtitleRegister">
+        app:layout_constraintTop_toBottomOf="@+id/tilUsernameRegister">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEmailRegister"

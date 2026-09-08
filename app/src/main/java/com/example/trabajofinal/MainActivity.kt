@@ -38,9 +38,12 @@ class MainActivity : AppCompatActivity() {
 
             if (isValidUser) {
                 Toast.makeText(this, "¡Bienvenido! Sesión iniciada con éxito", Toast.LENGTH_SHORT).show()
-                // Aquí podrías dirigir al usuario a la pantalla principal de tu app
-                // startActivity(Intent(this, HomeActivity::class.java))
-                // finish()
+
+                // Redirección al Dashboard enviando el correo del usuario
+                val intent = Intent(this, DashboardActivity::class.java)
+                intent.putExtra("USER_EMAIL", email)
+                startActivity(intent)
+                finish()
             } else {
                 Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
             }

@@ -1,4 +1,5 @@
 package com.example.trabajofinal
+
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
@@ -18,6 +19,7 @@ class RegisterActivity : AppCompatActivity() {
 
         dbHelper = DatabaseHelper(this)
 
+        val etUsername = findViewById<TextInputEditText>(R.id.etUsernameRegister)
         val etEmail = findViewById<TextInputEditText>(R.id.etEmailRegister)
         val etPassword = findViewById<TextInputEditText>(R.id.etPasswordRegister)
         val etConfirmPassword = findViewById<TextInputEditText>(R.id.etConfirmPasswordRegister)
@@ -25,17 +27,18 @@ class RegisterActivity : AppCompatActivity() {
         val tvGoToLogin = findViewById<TextView>(R.id.tvGoToLogin)
 
         btnRegister.setOnClickListener {
+            val username = etUsername.text.toString().trim()
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString().trim()
             val confirmPassword = etConfirmPassword.text.toString().trim()
 
             // 1. Validación de Campos Vacíos
-            if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // 2. Validación de Formato de Correo/Usuario
+            // 2. Validación de Formato de Correo
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 Toast.makeText(this, "Ingresa un correo válido", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -47,14 +50,14 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // 4. Verificar si el usuario ya existe
+            // 4. Verificar si el correo ya existe
             if (dbHelper.checkEmailExists(email)) {
                 Toast.makeText(this, "Este correo ya está registrado", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // 5. Guardar en la Base de Datos
-            val isInserted = dbHelper.registerUser(email, password)
+            // 5. Guardar en la Base de Datos con el orden correcto (username, email, password)
+            val isInserted = dbHelper.registerUser(username, email, password)
             if (isInserted) {
                 Toast.makeText(this, "¡Registro exitoso!", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, MainActivity::class.java))
