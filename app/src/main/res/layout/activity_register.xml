@@ -3,19 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/mainRegister"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_dark"
     android:padding="24dp"
-    tools:context=".MainActivity">
+    tools:context=".RegisterActivity">
 
     <!-- Logo central -->
     <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="48dp"
+        android:id="@+id/imgLogoRegister"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
         android:contentDescription="Logo de la aplicación"
         android:src="@android:drawable/ic_menu_myplaces"
         app:tint="@color/neon_cyan"
@@ -25,37 +25,37 @@
 
     <!-- Título y Subtítulo -->
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/tvTitleRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Bienvenido de nuevo"
+        android:layout_marginTop="16dp"
+        android:text="Crear cuenta"
         android:textColor="@color/text_white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
+        app:layout_constraintTop_toBottomOf="@+id/imgLogoRegister" />
 
     <TextView
-        android:id="@+id/tvSubtitle"
+        android:id="@+id/tvSubtitleRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Ingresa tus credenciales para continuar"
+        android:text="Regístrate para comenzar a usar la app"
         android:textColor="@color/text_gray"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleRegister" />
 
     <!-- Campo Usuario / Correo -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilEmail"
+        android:id="@+id/tilEmailRegister"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:hint="Ingrese su usuario"
         android:textColorHint="@color/neon_cyan"
         app:boxBackgroundColor="@color/card_dark"
@@ -69,10 +69,10 @@
         app:startIconTint="@color/neon_cyan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSubtitle">
+        app:layout_constraintTop_toBottomOf="@+id/tvSubtitleRegister">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/etEmailRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -81,7 +81,7 @@
 
     <!-- Campo Contraseña -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilPassword"
+        android:id="@+id/tilPasswordRegister"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -101,42 +101,75 @@
         app:startIconTint="@color/neon_cyan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilEmail">
+        app:layout_constraintTop_toBottomOf="@+id/tilEmailRegister">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/etPasswordRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:textColor="@color/neon_cyan" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Botón Celeste Neón -->
+    <!-- Campo Confirmar Contraseña -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilConfirmPasswordRegister"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Confirme su contraseña"
+        android:textColorHint="@color/neon_cyan"
+        app:boxBackgroundColor="@color/card_dark"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxStrokeColor="@color/stroke_dark"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/neon_cyan"
+        app:hintTextColor="@color/neon_cyan"
+        app:startIconDrawable="@android:drawable/ic_lock_lock"
+        app:startIconTint="@color/neon_cyan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilPasswordRegister">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etConfirmPasswordRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="@color/neon_cyan" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Botón Registrarse -->
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnRegister"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:backgroundTint="@color/neon_cyan"
-        android:text="Iniciar Sesión"
+        android:text="Registrarse"
         android:textColor="@color/bg_dark"
         android:textSize="16sp"
         android:textStyle="bold"
         app:cornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/tilConfirmPasswordRegister" />
 
+    <!-- Texto / Botón para Volver al Login -->
     <TextView
-        android:id="@+id/tvGoToRegister"
+        android:id="@+id/tvGoToLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="¿No tienes cuenta? Regístrate aquí."
+        android:text="¿Ya tienes una cuenta? Inicia sesión"
         android:textColor="@color/neon_cyan"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
